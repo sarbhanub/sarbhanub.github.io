@@ -1,0 +1,55 @@
+User-agent: *
+
+Disallow: /blog/
+
+Disallow: /tags/data-science/
+
+Disallow: /
+
+Disallow: /tags/statistics/
+
+Disallow: /tags/
+
+Disallow: /blog/correlation-causation/
+
+Disallow: /projects/tableau-superstore/
+
+Disallow: /tags/data-visualization/
+
+Disallow: /tags/excel/
+
+Disallow: /projects/
+
+Disallow: /tags/tableau/
+
+Disallow: /tags/data-engineering/
+
+Disallow: /tags/flask/
+
+Disallow: /tags/mongodb/
+
+Disallow: /tags/nlp/
+
+Disallow: /tags/python/
+
+Disallow: /projects/bbc-reader/
+
+Disallow: /projects/tableau-bluebikes/
+
+Disallow: /tags/pandas/
+
+Disallow: /projects/spacy-ner/
+
+Disallow: /projects/tableau-flamingos/
+
+Disallow: /tags/computer-vision/
+
+Disallow: /tags/opencv/
+
+Disallow: /projects/opencv-ocr-indic/
+
+Disallow: /projects/opencv-lanetrack/
+
+Disallow: /about/
+
+Disallow: /categories/
