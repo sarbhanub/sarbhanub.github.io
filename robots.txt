@@ -50,6 +50,6 @@ Disallow: /projects/opencv-ocr-indic/
 
 Disallow: /projects/opencv-lanetrack/
 
-Disallow: /about/
-
 Disallow: /categories/
+
+Disallow: /resume/
