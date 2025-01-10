@@ -6,13 +6,11 @@ Disallow: /tags/data-science/
 
 Disallow: /
 
+Disallow: /blog/correlation-causation/
+
 Disallow: /tags/statistics/
 
 Disallow: /tags/
-
-Disallow: /blog/correlation-causation/
-
-Disallow: /projects/tableau-superstore/
 
 Disallow: /tags/data-visualization/
 
@@ -21,6 +19,8 @@ Disallow: /tags/excel/
 Disallow: /projects/
 
 Disallow: /tags/tableau/
+
+Disallow: /projects/tableau-superstore/
 
 Disallow: /tags/data-engineering/
 
@@ -34,9 +34,9 @@ Disallow: /tags/python/
 
 Disallow: /projects/bbc-reader/
 
-Disallow: /projects/tableau-bluebikes/
-
 Disallow: /tags/pandas/
+
+Disallow: /projects/tableau-bluebikes/
 
 Disallow: /projects/spacy-ner/
 
