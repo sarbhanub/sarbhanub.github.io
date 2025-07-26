@@ -1,0 +1,42 @@
+User-agent: *
+Allow: /
+Allow: /blog/
+Allow: /work/
+Allow: /tags/
+
+Disallow: /categories/
+Disallow: /about/
+Disallow: /blog/correlation-causation/
+Disallow: /categories/
+Disallow: /tags/computer-vision/
+Disallow: /tags/data-engineering/
+Disallow: /tags/data-science/
+Disallow: /tags/data-visualization/
+Disallow: /tags/excel/
+Disallow: /tags/flask/
+Disallow: /tags/linkedin/
+Disallow: /tags/mongodb/
+Disallow: /tags/nlp/
+Disallow: /tags/opencv/
+Disallow: /tags/pandas/
+Disallow: /tags/python/
+Disallow: /tags/statistics/
+Disallow: /tags/tableau/
+Disallow: /work/
+Disallow: /work/bbc-reader/
+Disallow: /work/opencv-lanetrack/
+Disallow: /work/opencv-ocr-indic/
+Disallow: /work/spacy-ner/
+Disallow: /work/tableau-bluebikes/
+Disallow: /work/tableau-flamingos/
+Disallow: /work/tableau-superstore/
+
+Disallow: /*.jpg$
+Disallow: /*.jpeg$
+Disallow: /*.png$
+Disallow: /*.gif$
+Disallow: /*.webp$
+Disallow: /*.pdf$
+Disallow: /*.svg$
+
+Sitemap: https://sarbhanub.github.io/sitemap.xml
