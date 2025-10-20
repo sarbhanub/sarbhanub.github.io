@@ -13,6 +13,7 @@ Disallow: /tags/data-engineering/
 Disallow: /tags/data-science/
 Disallow: /tags/data-visualization/
 Disallow: /tags/excel/
+Disallow: /tags/finance/
 Disallow: /tags/flask/
 Disallow: /tags/linkedin/
 Disallow: /tags/mongodb/
@@ -22,8 +23,10 @@ Disallow: /tags/pandas/
 Disallow: /tags/python/
 Disallow: /tags/statistics/
 Disallow: /tags/tableau/
+Disallow: /tags/time-series/
 Disallow: /work/
 Disallow: /work/bbc-reader/
+Disallow: /work/corporate-bond-spread-forecasting/
 Disallow: /work/opencv-lanetrack/
 Disallow: /work/opencv-ocr-indic/
 Disallow: /work/spacy-ner/
