@@ -5,7 +5,6 @@ Allow: /work/
 Allow: /tags/
 
 Disallow: /categories/
-Disallow: /about/
 Disallow: /blog/correlation-causation/
 Disallow: /categories/
 Disallow: /tags/computer-vision/
