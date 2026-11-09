@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Probability on Sarbhanu Baidya</title><link>https://sarbhanub.github.io/tags/probability/</link><description>Recent content in Probability on Sarbhanu Baidya</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><managingEditor>sarbhanu.baidya+work@gmail.com (Sarbhanu Baidya)</managingEditor><webMaster>sarbhanu.baidya+work@gmail.com (Sarbhanu Baidya)</webMaster><lastBuildDate>Mon, 31 Aug 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://sarbhanub.github.io/tags/probability/index.xml" rel="self" type="application/rss+xml"/><item><title>$1000, a slot machine and 5 choices</title><link>https://sarbhanub.github.io/posts/casino-strategy/</link><pubDate>Mon, 31 Aug 2026 00:00:00 +0000</pubDate><author>sarbhanu.baidya+work@gmail.com (Sarbhanu Baidya)</author><guid>https://sarbhanub.github.io/posts/casino-strategy/</guid><description>&lt;figure&gt;&lt;img src="https://sarbhanub.github.io/posts/casino-strategy/assets/image/cindy-f-med.webp"
+alt="Casino room filled with slot machines"&gt;&lt;figcaption&gt;
+&lt;p&gt;Photo by Cindy F on &lt;a href="https://unsplash.com/photos/a-casino-room-filled-with-lots-of-slot-machines-fgwlWRwRf5g"&gt;Unsplash&lt;/a&gt;.&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Imagine you&amp;rsquo;re in Vegas with ＄1000 in hand. In front of you is a slot machine. Every time you play, you can choose one of five options:&lt;/p&gt;
+$$
+[S1\ |\ S2\ |\ S3\ |\ S4\ |\ S5]
+$$&lt;p&gt;You don&amp;rsquo;t know which option is better or worse. You don&amp;rsquo;t know their individual probabilities or payout distributions. All you know is that if you randomly choose one of the five options for a ＄1 play, the expected payout is ＄$x$.&lt;/p&gt;
+&lt;p&gt;So how should you use your ＄1000?&lt;/p&gt;
+&lt;p&gt;You could divide it equally among the five options. You could spend some of it testing the options and then put the remaining money on whichever one looks best, or you could continue experimenting throughout the game.&lt;/p&gt;
+&lt;p&gt;This looks like a standard exploration-exploitation problem, but there is a more fundamental statistical question that comes first: &lt;strong&gt;is the information we have enough to determine an optimal strategy?&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id="the-game"&gt;The Game&lt;/h3&gt;
+&lt;p&gt;Let the true expected payout of option $i$ be $\mu_i$, where $i\in\{1,2,3,4,5\}$. Suppose the only thing we know about these expected payouts is their average:&lt;/p&gt;
+$$
+\frac{\mu_1+\mu_2+\mu_3+\mu_4+\mu_5}{5}=x
+$$&lt;p&gt;For example, let $x=0.95$. The five expected payouts could be:&lt;/p&gt;
+$$
+(0.94,0.95,0.96,0.95,0.95)
+$$&lt;p&gt;or they could be:&lt;/p&gt;
+$$
+(0.60,0.70,0.90,1.00,1.55)
+$$&lt;p&gt;Both satisfy the same constraint, but the value of exploration is very different in the two cases. If the five options are nearly identical, spending a large part of the bankroll trying to identify the best one is unlikely to be useful. If one option is substantially better than the others, identifying it early could have a large effect on the final bankroll.&lt;/p&gt;
+&lt;p&gt;The problem is that we don&amp;rsquo;t know which situation we&amp;rsquo;re in.&lt;/p&gt;
+&lt;h3 id="the-problem-with-picking-the-winner"&gt;The Problem With Picking the Winner&lt;/h3&gt;
+&lt;p&gt;Suppose we play each option 10 times and obtain:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Option&lt;/th&gt;
+&lt;th style="text-align: right"&gt;Played&lt;/th&gt;
+&lt;th style="text-align: right"&gt;Returned&lt;/th&gt;
+&lt;th style="text-align: right"&gt;Observed return&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td style="text-align: right"&gt;＄10&lt;/td&gt;
+&lt;td style="text-align: right"&gt;＄8&lt;/td&gt;
+&lt;td style="text-align: right"&gt;80%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td style="text-align: right"&gt;＄10&lt;/td&gt;
+&lt;td style="text-align: right"&gt;＄11&lt;/td&gt;
+&lt;td style="text-align: right"&gt;110%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td style="text-align: right"&gt;＄10&lt;/td&gt;
+&lt;td style="text-align: right"&gt;＄9&lt;/td&gt;
+&lt;td style="text-align: right"&gt;90%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td style="text-align: right"&gt;＄10&lt;/td&gt;
+&lt;td style="text-align: right"&gt;＄7&lt;/td&gt;
+&lt;td style="text-align: right"&gt;70%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td style="text-align: right"&gt;＄10&lt;/td&gt;
+&lt;td style="text-align: right"&gt;＄18&lt;/td&gt;
+&lt;td style="text-align: right"&gt;180%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Option 5 looks like the winner, but 10 observations are not enough to know whether its underlying expected payout is actually higher or whether we have simply observed a favorable sequence of outcomes.&lt;/p&gt;
+&lt;p&gt;We therefore have two competing uses for the remaining bankroll. We can exploit the information we have and play the option that currently looks best, or we can spend some of the bankroll collecting additional information.&lt;/p&gt;
+&lt;p&gt;A simple approach would be to choose an exploration budget in advance. For example, we could spend ＄20 on each option, for a total of ＄100, and then use the remaining ＄900 on the option with the highest observed return. We could compare this with other fixed budgets:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: right"&gt;Exploration budget&lt;/th&gt;
+&lt;th style="text-align: right"&gt;Exploration per option&lt;/th&gt;
+&lt;th style="text-align: right"&gt;Remaining bankroll&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: right"&gt;＄50&lt;/td&gt;
+&lt;td style="text-align: right"&gt;＄10&lt;/td&gt;
+&lt;td style="text-align: right"&gt;＄950&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: right"&gt;＄100&lt;/td&gt;
+&lt;td style="text-align: right"&gt;＄20&lt;/td&gt;
+&lt;td style="text-align: right"&gt;＄900&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: right"&gt;＄150&lt;/td&gt;
+&lt;td style="text-align: right"&gt;＄30&lt;/td&gt;
+&lt;td style="text-align: right"&gt;＄850&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: right"&gt;＄200&lt;/td&gt;
+&lt;td style="text-align: right"&gt;＄40&lt;/td&gt;
+&lt;td style="text-align: right"&gt;＄800&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: right"&gt;＄300&lt;/td&gt;
+&lt;td style="text-align: right"&gt;＄60&lt;/td&gt;
+&lt;td style="text-align: right"&gt;＄700&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Monte Carlo simulation could compare the average final bankroll produced by these strategies. But this immediately raises another question: why should the exploration budget be fixed in advance?&lt;/p&gt;
+&lt;p&gt;If the evidence after ＄40 strongly favors one option, continuing to explore may be wasteful. If the evidence is still ambiguous after ＄200, stopping simply because the predetermined budget has been exhausted may also be wasteful.&lt;/p&gt;
+&lt;p&gt;Ideally, the decision to explore should depend on the information accumulated so far.&lt;/p&gt;
+&lt;h3 id="what-can-we-infer-from-the-data"&gt;What Can We Infer From the Data?&lt;/h3&gt;
+&lt;p&gt;After each ＄1 play, we observe another payout. We can use these observations to update our estimates of the five expected payouts.&lt;/p&gt;
+&lt;p&gt;Suppose that at some point our estimates are:&lt;/p&gt;
+$$
+\mu_1\approx0.91,\quad
+\mu_2\approx0.94,\quad
+\mu_3\approx0.96,\quad
+\mu_4\approx1.03,\quad
+\mu_5\approx0.93
+$$&lt;p&gt;Option 4 currently has the highest estimated return, but the estimates alone do not tell us how uncertain they are. An estimate of $1.03$ based on three observations is very different from an estimate of $1.03$ based on 300 observations.&lt;/p&gt;
+&lt;p&gt;This is where a probabilistic model becomes useful. Rather than treating each $\mu_i$ as a single estimated number, we can represent our uncertainty about it with a probability distribution.&lt;/p&gt;
+&lt;p&gt;In a Bayesian formulation, if $D_t$ denotes the observations collected after $t$ plays, we work with a posterior distribution such as:&lt;/p&gt;
+$$
+P(\mu_i\mid D_t)
+$$&lt;p&gt;This allows us to quantify statements such as the probability that a particular option is actually the best. For example:&lt;/p&gt;
+$$
+P(\text{Option 4 is best}\mid D_t)=0.97
+$$&lt;p&gt;would mean that, under our model and prior assumptions, there is a 97% posterior probability that option 4 has the highest expected payout.&lt;/p&gt;
+&lt;p&gt;But even a high probability of having identified the best option does not automatically tell us to stop exploring. The difference between the options also matters. If option 4 is probably best but is expected to be only marginally better than option 3, another observation might still be useful. If option 4 appears to be dramatically better, further exploration may have very little value.&lt;/p&gt;
+&lt;p&gt;This brings us to the value of information.&lt;/p&gt;
+&lt;h3 id="exploration-as-a-decision-problem"&gt;Exploration as a Decision Problem&lt;/h3&gt;
+&lt;p&gt;Suppose there are ＄600 left in the bankroll. We could use the next ＄1 on the option that currently looks best, or we could use it to gather more information about another option.&lt;/p&gt;
+&lt;p&gt;The second choice has an immediate cost: we give up the opportunity to exploit our current information with that ＄1. But the resulting observation could change what we do with the remaining ＄599.&lt;/p&gt;
+&lt;p&gt;The relevant quantity is therefore not simply the expected payout of the exploratory play. It is the expected improvement in future decisions caused by the information that play provides.&lt;/p&gt;
+&lt;p&gt;Conceptually, we want to compare the expected final bankroll from exploiting now with the expected final bankroll from collecting another observation and then making better decisions with the information it provides.&lt;/p&gt;
+&lt;p&gt;If the latter is larger, exploration is worthwhile. If it is smaller, exploitation is preferable.&lt;/p&gt;
+&lt;p&gt;This is a sequential decision problem because the decision at time $t$ depends on the information collected before time $t$ and on how much of the bankroll remains.&lt;/p&gt;
+&lt;p&gt;The policy can be written as:&lt;/p&gt;
+$$
+\pi(H_t)\rightarrow\{1,2,3,4,5\}
+$$&lt;p&gt;where $H_t$ represents the complete history of observations up to play $t$.&lt;/p&gt;
+&lt;p&gt;The objective is:&lt;/p&gt;
+$$
+\boxed{\max_{\pi}E_\pi[B_{\text{final}}]}
+$$&lt;p&gt;where $B_{\text{final}}$ is the final bankroll.&lt;/p&gt;
+&lt;h3 id="but-there-is-a-fundamental-problem"&gt;But There Is a Fundamental Problem&lt;/h3&gt;
+&lt;p&gt;There is an important limitation that is easy to overlook.&lt;/p&gt;
+&lt;p&gt;The equation&lt;/p&gt;
+$$
+\frac{\mu_1+\mu_2+\mu_3+\mu_4+\mu_5}{5}=x
+$$&lt;p&gt;does not define a probability distribution over the unknown $\mu_i$.&lt;/p&gt;
+&lt;p&gt;It only defines a constraint.&lt;/p&gt;
+&lt;p&gt;There are infinitely many possible combinations of expected payouts that satisfy it. We therefore cannot simply run a Monte Carlo simulation and claim that it tells us the optimal strategy. To simulate the unknown state of the machine, we need to specify how likely the different possible states are.&lt;/p&gt;
+&lt;p&gt;This requires an additional modeling assumption.&lt;/p&gt;
+&lt;p&gt;For example, we could specify a prior distribution over the five expected payouts, subject to their average being $x$:&lt;/p&gt;
+$$
+P(\mu_1,\mu_2,\mu_3,\mu_4,\mu_5\mid x)
+$$&lt;p&gt;The prior represents our uncertainty before observing any plays. It might assign most of its probability to situations where the five options are similar, or it might allow substantial differences between them.&lt;/p&gt;
+&lt;p&gt;This assumption is not contained in the original problem. We are adding it in order to make the decision problem well-defined.&lt;/p&gt;
+&lt;p&gt;That distinction is important because changing the prior can change the optimal strategy.&lt;/p&gt;
+&lt;h3 id="monte-carlo-comes-after-the-model"&gt;Monte Carlo Comes After the Model&lt;/h3&gt;
+&lt;p&gt;Once we have specified a model for the unknown machine, Monte Carlo gives us a practical way to evaluate a strategy.&lt;/p&gt;
+&lt;p&gt;A single simulation run still contains only one player and one ＄1000 bankroll. We first generate a possible hidden state of the five options from the model. The player does not observe that hidden state. The player only sees the outcomes of the plays they choose to make.&lt;/p&gt;
+&lt;p&gt;The strategy then uses the available information to decide where to spend each ＄1. After every observation, it updates its beliefs and chooses the next action.&lt;/p&gt;
+&lt;p&gt;When the ＄1000 has been exhausted, we record the final bankroll.&lt;/p&gt;
+&lt;p&gt;We then repeat the entire experiment many times. Each run represents a different possible realization of the same decision problem.&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+$$
+\begin{aligned}
+\text{Run 1} &amp;\rightarrow \text{＄1,137}\\
+\text{Run 2} &amp;\rightarrow \text{＄812}\\
+\text{Run 3} &amp;\rightarrow \text{＄1,264}\\
+\text{Run 4} &amp;\rightarrow \text{＄947}
+\end{aligned}
+$$&lt;p&gt;After enough repetitions, the average final bankroll estimates:&lt;/p&gt;
+$$
+E[B_{\text{final}}\mid\text{strategy, model}]
+$$&lt;p&gt;We can then compare different policies under the same model.&lt;/p&gt;
+&lt;p&gt;For example, we could compare random selection, a greedy strategy that always chooses the current estimated winner, several fixed exploration budgets and an adaptive policy based on the posterior distribution.&lt;/p&gt;
+&lt;p&gt;The purpose of Monte Carlo here is not to discover the unknown $\mu_i$ directly. It is to evaluate the consequences of different decision rules under an explicitly specified model of uncertainty.&lt;/p&gt;
+&lt;h3 id="the-prior-changes-the-value-of-exploration"&gt;The Prior Changes the Value of Exploration&lt;/h3&gt;
+&lt;p&gt;This gives us a useful experiment in its own right.&lt;/p&gt;
+&lt;p&gt;Suppose one prior says that the five options are almost always similar. Under that prior, extensive exploration is unlikely to produce much useful information, so a strategy that exploits relatively early may perform well.&lt;/p&gt;
+&lt;p&gt;Now consider a different prior that allows one option to be substantially better than the others. In that setting, exploration becomes more valuable because identifying the best option can affect a large portion of the remaining bankroll.&lt;/p&gt;
+&lt;p&gt;The two models can therefore produce different optimal policies even though they have the same overall expected payout $x$.&lt;/p&gt;
+&lt;p&gt;This means there is no universal answer such as &amp;ldquo;spend 10% of the bankroll exploring.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;The amount of exploration depends on what we assume about the uncertainty in the underlying choices.&lt;/p&gt;
+&lt;h3 id="information-about-one-option-can-affect-the-others"&gt;Information About One Option Can Affect the Others&lt;/h3&gt;
+&lt;p&gt;There is also an interesting consequence of the constraint on the expected payouts.&lt;/p&gt;
+&lt;p&gt;Suppose we know:&lt;/p&gt;
+$$
+\mu_1+\mu_2+\mu_3+\mu_4+\mu_5=5x
+$$&lt;p&gt;and $x=0.95$, so that:&lt;/p&gt;
+$$
+\mu_1+\mu_2+\mu_3+\mu_4+\mu_5=4.75
+$$&lt;p&gt;If we somehow knew:&lt;/p&gt;
+$$
+\mu_1=0.80,\quad
+\mu_2=0.85,\quad
+\mu_3=0.90,\quad
+\mu_4=1.00
+$$&lt;p&gt;then the fifth expected payout would have to be:&lt;/p&gt;
+$$
+\mu_5=4.75-(0.80+0.85+0.90+1.00)=1.20
+$$&lt;p&gt;In practice, our estimates would have uncertainty, so we would not normally know $\mu_5$ exactly. But information about the first four options would still provide information about the fifth because the five expected payouts are linked by the constraint.&lt;/p&gt;
+&lt;p&gt;This means that the choices are not necessarily independent from an inference perspective. Learning about one part of the system can change what we believe about another part.&lt;/p&gt;
+&lt;h3 id="what-we-can-actually-answer"&gt;What We Can Actually Answer&lt;/h3&gt;
+&lt;p&gt;The original question sounds simple:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;How much of the ＄1000 should I spend figuring out which option is best?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;But the answer cannot be obtained from $x$ alone.&lt;/p&gt;
+&lt;p&gt;The first thing we need is a probability model describing our uncertainty about the unknown options. Once that model is specified, we can update it after every play and use the resulting posterior distribution to evaluate the expected value of further information.&lt;/p&gt;
+&lt;p&gt;The decision then becomes a sequential optimization problem:&lt;/p&gt;
+$$
+\boxed{\max_{\pi}E_\pi[B_{\text{final}}]}
+$$&lt;p&gt;where the policy $\pi$ decides where to spend each ＄1 based on everything observed so far.&lt;/p&gt;
+&lt;p&gt;Monte Carlo can then be used to compare those policies and estimate their expected final bankrolls.&lt;/p&gt;
+&lt;p&gt;So the interesting question is not really whether ＄100, ＄200 or ＄300 is the &amp;ldquo;correct&amp;rdquo; exploration budget. There may not be a fixed exploration budget at all.&lt;/p&gt;
+&lt;p&gt;The more fundamental question is:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Given a particular model of uncertainty about the five choices, how should a ＄1000 bankroll be allocated between learning and exploiting what has already been learned?&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;That is a problem we can actually simulate, analyze and test.&lt;/p&gt;</description></item><item><title>Correlation vs. Causation?</title><link>https://sarbhanub.github.io/posts/correlation-causation/</link><pubDate>Sun, 04 Aug 2024 00:00:00 +0000</pubDate><author>sarbhanu.baidya+work@gmail.com (Sarbhanu Baidya)</author><guid>https://sarbhanub.github.io/posts/correlation-causation/</guid><description>&lt;p&gt;&lt;a href="https://www.linkedin.com/posts/sarbhanub_causalinference-datascience-statistics-activity-7225411539153866753--pce"&gt;View on LinkedIn&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Ever noticed how sometimes two things move in sync, but one doesn&amp;rsquo;t necessarily cause the other? Here’s why we should dig deeper:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Key Considerations:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Confounding Variables: Other hidden factors might be at play.&lt;/li&gt;
+&lt;li&gt;Reverse Causality: What if the effect is actually causing the cause?&lt;/li&gt;
+&lt;li&gt;Coincidental Correlation: Some patterns are just happy coincidences.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Two classic examples from Statistics 101:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Ice cream sales &amp;amp; Shark attacks: Correlation: Positive, but in reality: Seasonal effects come into play (people swim more in Summer and eat more ice cream)&lt;/li&gt;
+&lt;li&gt;Height &amp;amp; Reading Ability in Children: Correlation: Positive, but actually: Age is the key (Of course, older kids are taller and better readers)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Digging Past the Usual: To truly understand causation, we need to go beyond mere observation and utilize techniques like randomized controlled trials, natural experiments, or instrumental variables.&lt;/p&gt;
+&lt;p&gt;Simpson’s Paradox: Sometimes, a trend that appears in different groups of data disappears or reverses when these groups are combined. Always analyze data within the right context.&lt;/p&gt;
+&lt;p&gt;Pearl&amp;rsquo;s do-operator: p(y|do(x)) ≠ p(y|x). This concept from Judea Pearl helps distinguish between mere correlation and causation by simulating an intervention in the model.&lt;/p&gt;
+&lt;p&gt;Always Ask: &amp;ldquo;What&amp;rsquo;s the underlying mechanism?&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Stay curious and keep questioning!&lt;/p&gt;
+&lt;p&gt;&lt;img src="assets/image/1722672350951.jpeg" alt="Funny image on how correlation and causation can be misinterpreted"&gt;&lt;/p&gt;
+&lt;p&gt;#CausalInference #DataScience&lt;/p&gt;</description></item></channel></rss>
