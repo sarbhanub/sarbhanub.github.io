@@ -468,7 +468,10 @@ $$&lt;p&gt;where the policy $\pi$ decides where to spend each ＄1 based on ever
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Given a particular model of uncertainty about the five choices, how should a ＄1000 bankroll be allocated between learning and exploiting what has already been learned?&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;That is a problem we can actually simulate, analyze and test.&lt;/p&gt;</description></item><item><title>Correlation vs. Causation?</title><link>https://sarbhanub.github.io/posts/correlation-causation/</link><pubDate>Sun, 04 Aug 2024 00:00:00 +0000</pubDate><author>sarbhanu.baidya+work@gmail.com (Sarbhanu Baidya)</author><guid>https://sarbhanub.github.io/posts/correlation-causation/</guid><description>&lt;p&gt;&lt;a href="https://www.linkedin.com/posts/sarbhanub_causalinference-datascience-statistics-activity-7225411539153866753--pce"&gt;View on LinkedIn&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;That is a problem we can actually simulate, analyze and test.&lt;/p&gt;</description></item><item><title>Correlation vs. Causation?</title><link>https://sarbhanub.github.io/posts/correlation-causation/</link><pubDate>Sun, 04 Aug 2024 00:00:00 +0000</pubDate><author>sarbhanu.baidya+work@gmail.com (Sarbhanu Baidya)</author><guid>https://sarbhanub.github.io/posts/correlation-causation/</guid><description>&lt;figure&gt;&lt;img src="https://sarbhanub.github.io/posts/correlation-causation/assets/image/1722672350951.jpeg"
+alt="Funny image on how correlation and causation can be misinterpreted"&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;a href="https://www.linkedin.com/posts/sarbhanub_causalinference-datascience-statistics-activity-7225411539153866753--pce"&gt;View on LinkedIn&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Ever noticed how sometimes two things move in sync, but one doesn&amp;rsquo;t necessarily cause the other? Here’s why we should dig deeper:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key Considerations:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
