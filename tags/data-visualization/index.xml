@@ -1,4 +1,251 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Data Visualization on Sarbhanu Baidya</title><link>https://sarbhanub.github.io/tags/data-visualization/</link><description>Recent content in Data Visualization on Sarbhanu Baidya</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><managingEditor>sarbhanu.baidya+work@gmail.com (Sarbhanu Baidya)</managingEditor><webMaster>sarbhanu.baidya+work@gmail.com (Sarbhanu Baidya)</webMaster><lastBuildDate>Thu, 13 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://sarbhanub.github.io/tags/data-visualization/index.xml" rel="self" type="application/rss+xml"/><item><title>$1000, a slot machine and 5 choices</title><link>https://sarbhanub.github.io/posts/casino-strategy/</link><pubDate>Mon, 31 Aug 2026 00:00:00 +0000</pubDate><author>sarbhanu.baidya+work@gmail.com (Sarbhanu Baidya)</author><guid>https://sarbhanub.github.io/posts/casino-strategy/</guid><description>&lt;figure&gt;&lt;img src="https://sarbhanub.github.io/posts/casino-strategy/assets/image/cindy-f-med.webp"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Data Visualization on Sarbhanu Baidya</title><link>https://sarbhanub.github.io/tags/data-visualization/</link><description>Recent content in Data Visualization on Sarbhanu Baidya</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><managingEditor>sarbhanu.baidya+work@gmail.com (Sarbhanu Baidya)</managingEditor><webMaster>sarbhanu.baidya+work@gmail.com (Sarbhanu Baidya)</webMaster><lastBuildDate>Thu, 13 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://sarbhanub.github.io/tags/data-visualization/index.xml" rel="self" type="application/rss+xml"/><item><title>Your Parcel Is Having a Random Day</title><link>https://sarbhanub.github.io/posts/ctmc-lastmile/</link><pubDate>Sat, 21 Nov 2026 00:00:00 +0000</pubDate><author>sarbhanu.baidya+work@gmail.com (Sarbhanu Baidya)</author><guid>https://sarbhanub.github.io/posts/ctmc-lastmile/</guid><description>&lt;figure&gt;&lt;img src="https://sarbhanub.github.io/posts/ctmc-lastmile/assets/image/mick-haupt-med.webp"
+alt="UPS Delivery Rider and Van"&gt;&lt;figcaption&gt;
+&lt;p&gt;Photo by Mick H. on &lt;a href="https://unsplash.com/photos/man-in-blue-dress-shirt-sitting-on-white-and-blue-bus-during-daytime-fVzrhGkLLaY"&gt;Unsplash&lt;/a&gt;.&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;You order something online. The app says your package has left the warehouse. A few hours later, it reaches your city. The next morning, you get a notification: &lt;em&gt;Out for delivery.&lt;/em&gt; And then&amp;hellip; nothing.&lt;/p&gt;
+&lt;p&gt;You check the app again. Still out for delivery. An hour passes. Same notification. You begin wondering whether the delivery person is stuck in traffic, having lunch, looking for your address or perhaps delivering twenty other packages before yours. It is an ordinary experience, but here is an interesting thought: can we describe the journey of that package using mathematics? Not by drawing its geographical route or calculating the distance between two locations. Instead, imagine describing what the package is doing at any given moment and how likely it is to change what it is doing next.&lt;/p&gt;
+&lt;p&gt;This is where the theory probability meets everyday life.&lt;/p&gt;
+&lt;h3 id="a-package-doesnt-just-travel-it-changes-states"&gt;A package doesn&amp;rsquo;t just travel. It changes states.&lt;/h3&gt;
+&lt;p&gt;Think about the possible situations your package can be in. It might be waiting at a warehouse, assigned to a delivery agent, travelling through the city or delayed by traffic. Eventually, it gets delivered. Or perhaps the customer isn&amp;rsquo;t home and the entire process has to be repeated. Let&amp;rsquo;s forget about the geographical route for a moment. Suppose we care only about the current state of the package. We can represent its journey as:&lt;/p&gt;
+$$
+W\longrightarrow A\longrightarrow T\longrightarrow D
+$$&lt;p&gt;where $W$ represents the warehouse, $A$ the assigned state, $T$ the in-transit state and $D$ the delivered state. The package occupies one state at a time and moves between states at random instants. We do not know exactly when the next transition will occur. However, we can describe the probabilities governing these transitions. To understand how, let&amp;rsquo;s begin with something familiar.&lt;/p&gt;
+&lt;h3 id="the-poisson-process-counting-random-events"&gt;The Poisson Process: Counting random events&lt;/h3&gt;
+&lt;p&gt;Suppose our package is waiting at the warehouse to be assigned to a delivery agent. How long will it wait? Perhaps five minutes, perhaps forty. There is no fixed schedule that guarantees when the assignment will happen. Imagine that assignment opportunities occur randomly at a constant average rate of $0.8$ per hour. This is precisely the kind of situation we can describe using a Poisson Process.&lt;/p&gt;
+&lt;p&gt;Let $N(t)$ denote the number of assignment opportunities occurring during a period of $t$ hours. Then:&lt;/p&gt;
+$$
+N(t)\sim\operatorname{Poisson}(0.8t)
+$$&lt;p&gt;The probability of observing exactly $n$ assignment opportunities is:&lt;/p&gt;
+$$
+P(N(t)=n)=\frac{e^{-0.8t}(0.8t)^n}{n!}
+$$&lt;p&gt;Now, what is the probability that no assignment opportunity occurs during the next hour? Putting $t=1$ and $n=0$, we obtain:&lt;/p&gt;
+$$
+\begin{aligned}
+P(N(1)=0)
+&amp;=\frac{e^{-0.8}(0.8)^0}{0!}\\
+&amp;=e^{-0.8}\\
+&amp;\approx0.4493
+\end{aligned}
+$$&lt;p&gt;Thus, there is approximately a $44.93\%$ probability that no assignment opportunity occurs during the next hour. Consequently, the probability of at least one opportunity is:&lt;/p&gt;
+$$
+P(N(1)\geq1)=1-e^{-0.8}\approx0.5507
+$$&lt;p&gt;In other words, there is approximately a $55.07\%$ probability of at least one assignment opportunity within an hour. But there is another interesting connection. The waiting time until the first event of a Poisson Process follows an exponential distribution. If $T$ denotes the waiting time until the first assignment opportunity, then: $P(T&gt;t)=e^{-0.8t}$&lt;/p&gt;
+&lt;p&gt;This connection is important because exponentially distributed holding times are fundamental to Continuous Time Markov Chains (CTMC).&lt;/p&gt;
+&lt;h3 id="from-poisson-processes-to-ctmc"&gt;From Poisson Processes to CTMC&lt;/h3&gt;
+&lt;p&gt;A Poisson Process counts random events occurring over time. A Continuous-Time Markov Chain describes how a system changes its state as these events occur.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s extend our delivery example. Suppose the transition rates between the states are:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: left"&gt;Transition&lt;/th&gt;
+&lt;th style="text-align: right"&gt;Rate per hour&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;Warehouse to Assigned&lt;/td&gt;
+&lt;td style="text-align: right"&gt;0.8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;Assigned to In transit&lt;/td&gt;
+&lt;td style="text-align: right"&gt;1.2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;In transit to Delivered&lt;/td&gt;
+&lt;td style="text-align: right"&gt;0.5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;These rates are hypothetical and are chosen simply to illustrate the mathematics.&lt;/p&gt;
+&lt;p&gt;Since the waiting time in each state follows an exponential distribution, the expected time spent in each state is the reciprocal of its transition rate. Thus:&lt;/p&gt;
+$$
+\begin{aligned}
+E[T_W]&amp;=\frac{1}{0.8}=1.25,\\
+E[T_A]&amp;=\frac{1}{1.2}\approx0.8333,\\
+E[T_T]&amp;=\frac{1}{0.5}=2.
+\end{aligned}
+$$&lt;p&gt;Since the package must pass through all three stages, its expected delivery time is:&lt;/p&gt;
+$$
+\begin{aligned}
+E[T_D]
+&amp;=1.25+0.8333+2\\
+&amp;\approx4.0833\text{ hours}.
+\end{aligned}
+$$&lt;p&gt;So, under our simplified model, the expected time from the warehouse to successful delivery is approximately 4.08 hours. Of course, an expected value does not tell us where the package is likely to be at a particular instant. For that, we need to describe the transitions collectively.&lt;/p&gt;
+&lt;h3 id="the-generator-matrix-the-dna-of-a-ctmc"&gt;The Generator Matrix: The DNA of a CTMC&lt;/h3&gt;
+&lt;p&gt;The generator matrix, usually denoted by $G$, contains the instantaneous transition rates of the entire Markov chain. To understand its structure, suppose we have a CTMC with states $S_1,S_2,\ldots,S_n$. Its generator matrix is:&lt;/p&gt;
+$$
+G=
+\begin{bmatrix}
+g_{11}&amp;g_{12}&amp;\cdots&amp;g_{1n}\\
+g_{21}&amp;g_{22}&amp;\cdots&amp;g_{2n}\\
+\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\
+g_{n1}&amp;g_{n2}&amp;\cdots&amp;g_{nn}
+\end{bmatrix}
+$$&lt;p&gt;For distinct states $i$ and $j$, the off-diagonal entry $g_{ij}$ represents the transition rate from state $i$ to state $j$:&lt;/p&gt;
+$$
+g_{ij}=\lim_{h\to0^+}
+\frac{P(X(t+h)=j\mid X(t)=i)}{h},
+\qquad i\neq j.
+$$&lt;p&gt;The diagonal entries are determined by the condition that every row sums to zero, i.e. $g_{ii}=-\sum_{j\neq i}g_{ij}$&lt;/p&gt;
+&lt;p&gt;Consequently, the generator matrix has three important properties:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Every off-diagonal entry is non-negative.&lt;/li&gt;
+&lt;li&gt;Every diagonal entry is non-positive.&lt;/li&gt;
+&lt;li&gt;Every row sums to zero.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;For our delivery model, the only possible transitions are $W\to A$, $A\to T$ and $T\to D$. Therefore, the generator matrix becomes:&lt;/p&gt;
+$$
+G=
+\left[
+\begin{array}{c|cccc}
+&amp; W &amp; A &amp; T &amp; D\\
+\hline
+W &amp; -0.8 &amp; 0.8 &amp; 0 &amp; 0\\
+A &amp; 0 &amp; -1.2 &amp; 1.2 &amp; 0\\
+T &amp; 0 &amp; 0 &amp; -0.5 &amp; 0.5\\
+D &amp; 0 &amp; 0 &amp; 0 &amp; 0
+\end{array}
+\right]
+$$&lt;p&gt;The off-diagonal entries represent the transition rates from one state to another, while the diagonal entries represent the negative total rate of leaving each state. For example, $g_{12}=0.8$ represents the rate at which a package moves from the warehouse to the assigned state. Similarly, $g_{23}=1.2$ represents the rate of moving from assigned to in transit.&lt;/p&gt;
+&lt;p&gt;Why is the first diagonal entry $-0.8$? Because the only possible way to leave the warehouse is to enter the assigned state. Hence, $g_{11}=-0.8$. The same reasoning applies to the other transient states. Notice that the final row consists entirely of zeros. We have assumed that the delivered state is absorbing, meaning that once a package reaches this state, it remains there. The generator matrix provides a compact mathematical description of the entire delivery process.&lt;/p&gt;
+&lt;p&gt;More formally, for a small time interval $\Delta h$:&lt;/p&gt;
+$$
+P(X(t+h)=j\mid X(t)=i)
+=g_{ij}h+o(h),\quad i\neq j
+$$&lt;p&gt;while:&lt;/p&gt;
+$$
+P(X(t+h)=i\mid X(t)=i)
+=1+g_{ii}h+o(h).
+$$&lt;p&gt;Here, $o(h)$ represents terms that become negligible compared with $h$ as $h$ approaches zero. In simple terms, the generator matrix describes the instantaneous behaviour of the system.&lt;/p&gt;
+&lt;h3 id="where-is-the-package-likely-to-be-after-two-hours"&gt;Where is the package likely to be after two hours?&lt;/h3&gt;
+&lt;p&gt;Let $P(t)$ denote the transition probability matrix. Its individual entries are defined by:&lt;/p&gt;
+$$
+p_{ij}(t)=P(X(t)=j\mid X(0)=i)
+$$&lt;p&gt;This tells us the probability that a package starting in state $i$ will be in state $j$ after $t$ hours.&lt;/p&gt;
+&lt;p&gt;For a time-homogeneous CTMC, the transition probability matrix is given by: $P(t)=e^{Gt}$. The matrix exponential connects instantaneous transition rates to probabilities over an entire period of time.&lt;/p&gt;
+&lt;p&gt;Suppose our package starts at the warehouse. Its initial probability distribution is:&lt;/p&gt;
+$$
+p(0)=
+\begin{bmatrix}
+1&amp;0&amp;0&amp;0
+\end{bmatrix}
+$$&lt;p&gt;After two hours:&lt;/p&gt;
+$$
+p(2)=p(0)e^{2G}
+$$&lt;p&gt;Evaluating the matrix exponential gives approximately:&lt;/p&gt;
+$$
+p(2)=
+\begin{bmatrix}
+0.2019&amp;0.2224&amp;0.3776&amp;0.1982
+\end{bmatrix}
+$$&lt;p&gt;The entries correspond to the following probabilities:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: left"&gt;Package state&lt;/th&gt;
+&lt;th style="text-align: right"&gt;Probability after 2 hours&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;At warehouse&lt;/td&gt;
+&lt;td style="text-align: right"&gt;20.19%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;Assigned to courier&lt;/td&gt;
+&lt;td style="text-align: right"&gt;22.24%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;In transit&lt;/td&gt;
+&lt;td style="text-align: right"&gt;37.76%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;Delivered&lt;/td&gt;
+&lt;td style="text-align: right"&gt;19.82%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Think about that for a moment. Even though the package started at the warehouse, there is approximately a $19.82\%$ probability that it has already been delivered after two hours. At the same time, there is still approximately a $20.19\%$ probability that it hasn&amp;rsquo;t even left the warehouse!&lt;/p&gt;
+&lt;p&gt;This is the advantage of modelling the process probabilistically. Rather than predicting one particular outcome, we obtain a distribution over all possible states.&lt;/p&gt;
+&lt;h3 id="the-kolmogorov-forward-equation-watching-probabilities-flow"&gt;The Kolmogorov Forward Equation: Watching probabilities flow&lt;/h3&gt;
+&lt;p&gt;We have calculated the probabilities at a particular instant. But what if we want to understand how these probabilities change continuously? This brings us to the Kolmogorov forward equation:&lt;/p&gt;
+$$
+\frac{dP(t)}{dt}=P(t)G
+$$&lt;p&gt;If $p(t)$ represents the probability distribution as a row vector, then:&lt;/p&gt;
+$$
+\frac{dp(t)}{dt}=p(t)G
+$$&lt;p&gt;Substituting our generator matrix gives:&lt;/p&gt;
+$$
+\begin{aligned}
+p_W'(t)&amp;=-0.8p_W(t),\\
+p_A'(t)&amp;=0.8p_W(t)-1.2p_A(t),\\
+p_T'(t)&amp;=1.2p_A(t)-0.5p_T(t),\\
+p_D'(t)&amp;=0.5p_T(t).
+\end{aligned}
+$$&lt;p&gt;Consider the third equation:&lt;/p&gt;
+$$
+p_T'(t)=1.2p_A(t)-0.5p_T(t)
+$$&lt;p&gt;The probability of being in transit increases as packages enter from the assigned state. At the same time, it decreases as packages leave the transit state and get delivered. Thus, the rate of change is simply the probability flowing in minus the probability flowing out. This is essentially a balance equation for probabilities. We are watching probability flow through a delivery system, much like packages flow through a logistics network.&lt;/p&gt;
+&lt;h3 id="the-kolmogorov-backward-equation-looking-from-the-beginning"&gt;The Kolmogorov Backward Equation: Looking from the beginning&lt;/h3&gt;
+&lt;p&gt;Now let&amp;rsquo;s approach the same problem from a different perspective. Suppose if we ask: if a package starts at the warehouse, what is the probability that it will be delivered within the next two hours?&lt;/p&gt;
+&lt;p&gt;Define:&lt;/p&gt;
+$$
+h_i(t)=P(X(t)=D\mid X(0)=i)
+$$&lt;p&gt;Here, $h_i(t)$ represents the probability of being in the delivered state after time $t$, given that the package started in state $i$.&lt;/p&gt;
+&lt;p&gt;The Kolmogorov backward equation is:&lt;/p&gt;
+$$
+\frac{dP(t)}{dt}=GP(t)
+$$&lt;p&gt;For our delivery probability vector, written as a column vector $h(t)$, it becomes:&lt;/p&gt;
+$$
+\frac{dh(t)}{dt}=Gh(t)
+$$&lt;p&gt;Our system of equations is therefore:&lt;/p&gt;
+$$
+\begin{aligned}
+h_W'(t)&amp;=0.8[h_A(t)-h_W(t)],\\
+h_A'(t)&amp;=1.2[h_T(t)-h_A(t)],\\
+h_T'(t)&amp;=0.5[h_D(t)-h_T(t)],\\
+h_D'(t)&amp;=0.
+\end{aligned}
+$$&lt;p&gt;The initial conditions are:&lt;/p&gt;
+$$
+h_W(0)=h_A(0)=h_T(0)=0,\qquad h_D(0)=1.
+$$&lt;p&gt;The reasoning is simple. If the package starts at the warehouse, in the assigned state or in transit, it has not yet been delivered at time zero. If it starts in the delivered state, the delivery is already complete.&lt;/p&gt;
+&lt;p&gt;Solving this system gives:&lt;/p&gt;
+$$
+\begin{aligned}
+h_W(t)=1
+&amp;-\frac{32}{7}e^{-0.5t}\\
+&amp;+5e^{-0.8t}\\
+&amp;-\frac{10}{7}e^{-1.2t}.
+\end{aligned}
+$$&lt;p&gt;Now substitute $t=2$:&lt;/p&gt;
+$$
+\begin{aligned}
+h_W(2)
+={}&amp;1-\frac{32}{7}e^{-1}\\
+&amp;+5e^{-1.6}\\
+&amp;-\frac{10}{7}e^{-2.4}\\
+\approx{}&amp;0.1982.
+\end{aligned}
+$$&lt;p&gt;Therefore, there is approximately a $19.82\%$ probability that a package starting at the warehouse will be in the delivered state after two hours. This is exactly the probability we obtained from the delivered state entry of the transition probability matrix, from another perspective.&lt;/p&gt;
+&lt;p&gt;The forward equation describes how the probability distribution evolves from an initial distribution. The backward equation describes how the probability of a future outcome depends on the starting state. Both offer different ways of looking at the same stochastic system.&lt;/p&gt;
+&lt;h3 id="what-if-we-make-the-delivery-system-more-realistic"&gt;What if we make the delivery system more realistic?&lt;/h3&gt;
+&lt;p&gt;Our four-state model is deliberately simple. Real deliveries rarely follow such a neat progression. A package might encounter traffic congestion, an unsuccessful delivery attempt, an unavailable customer or a return to the distribution centre.&lt;/p&gt;
+&lt;p&gt;We could introduce additional states, for example:&lt;/p&gt;
+$$
+T\longrightarrow C\longrightarrow T
+$$&lt;p&gt;where $C$ represents traffic congestion. Similarly:&lt;/p&gt;
+$$
+T\longrightarrow F\longrightarrow R
+$$&lt;p&gt;where $F$ represents a failed delivery attempt and $R$ represents a return to the warehouse. Each additional state introduces new transition rates and changes the generator matrix.&lt;/p&gt;
+&lt;p&gt;We could even move beyond an individual package and model an entire delivery fleet. The state might represent the number of available couriers, the number of occupied couriers or the number of packages awaiting assignment. There is one modelling consideration worth remembering. Standard CTMCs assume exponentially distributed holding times and constant transition rates. Actual delivery durations may follow other distributions and traffic conditions may vary throughout the day. More realistic models might therefore require time dependent transition rates or semi-Markov processes.&lt;/p&gt;
+&lt;p&gt;But the simple model gives us a starting point.&lt;/p&gt;
+&lt;h3 id="final-thoughts"&gt;Final thoughts&lt;/h3&gt;
+&lt;p&gt;There is something I like about this particular application of CTMCs. We usually encounter stochastic processes through abstract states, transition matrices and differential equations. It is easy to forget that these mathematical objects can describe the unpredictability of ordinary life.&lt;/p&gt;
+&lt;p&gt;A delivery notification is just a small piece of information displayed on a phone. Behind it is a sequence of events that nobody can predict perfectly. A package waits. Someone picks it up. Traffic slows it down. A customer misses the delivery. Another attempt is made. A Poisson Process helps us describe the random occurrence of events. The generator matrix captures the rates at which the system changes. The Kolmogorov equations describe how probabilities evolve.&lt;/p&gt;
+&lt;p&gt;And suddenly, an ordinary parcel journey becomes a continuous time stochastic process. Perhaps the next time your parcel gets stuck at &lt;em&gt;Out for delivery&lt;/em&gt;, you&amp;rsquo;ll see more than an annoying notification. You&amp;rsquo;ll see a little probability theory unfolding in real time.&lt;/p&gt;</description></item><item><title>$1000, a slot machine and 5 choices</title><link>https://sarbhanub.github.io/posts/casino-strategy/</link><pubDate>Mon, 31 Aug 2026 00:00:00 +0000</pubDate><author>sarbhanu.baidya+work@gmail.com (Sarbhanu Baidya)</author><guid>https://sarbhanub.github.io/posts/casino-strategy/</guid><description>&lt;figure&gt;&lt;img src="https://sarbhanub.github.io/posts/casino-strategy/assets/image/cindy-f-med.webp"
 alt="Casino room filled with slot machines"&gt;&lt;figcaption&gt;
 &lt;p&gt;Photo by Cindy F on &lt;a href="https://unsplash.com/photos/a-casino-room-filled-with-lots-of-slot-machines-fgwlWRwRf5g"&gt;Unsplash&lt;/a&gt;.&lt;/p&gt;
 &lt;/figcaption&gt;
